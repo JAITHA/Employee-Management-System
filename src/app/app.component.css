@@ -1,0 +1,64 @@
+.container{
+    margin-top: 10px;
+    width:45%;
+}
+
+.black-border{
+    width: 90%;
+    margin: 3rem auto;
+}
+
+.toolbar{
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-employee{
+    display: flex;
+    justify-content: center;
+    width: 20%;
+    align-items: center;
+}
+
+.search-employee{
+    display: flex;
+    align-items: center;
+    width: 30%;
+    height: 90%;
+    justify-content: left;
+}
+
+.search-employee input{
+    width: 60%;
+    height: 80%;
+    border-radius: 1rem;
+    font-size: 1rem;
+
+}
+
+.form-heading{
+    border-top: 1px solid black;
+}
+
+.form-heading h6{
+    text-align: center;
+    background-color: white;
+    width: 150px;
+    font-weight: 600;
+    transform: translateY(-50%);
+}
+
+app-employee{
+    display: block;
+    width: 100%;
+    border-radius: 1rem;
+    margin: 0px auto;
+    box-shadow: 0px 0px 5px rgba(34, 43, 34, 0.5);
+    background-color: white;
+}
+
+#deletebtn{
+    margin-left: 150px;
+}

@@ -1,0 +1,214 @@
+<div class="container-fluid g-0">
+  <app-header></app-header>
+<div class="container">
+  <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Attenchion Required ! </strong> Are you Shure to Delete this Data ?
+    <button type="button" class="btn btn-dark" id="deletebtn" (click)="deletemsg()">Ok</button>
+  </div>
+</div>
+  <main class="black-border">
+    <div class="toolbar">
+      <div class="add-employee">
+        <button
+          class="btn btn-outline-success"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          type="button"
+          #addEmployeeButton
+        >
+          Add Employee
+        </button>
+      </div>
+      <div class="search-employee">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          #searchInput
+          (input)="searchEmployee(searchInput.value)"
+        />
+      </div>
+    </div>
+    <div class="employee">
+      <div class="row mt-5" *ngFor="employees.length == 0">
+        <div class="col text-center">
+          <span class="text-secondary fs-2 fw-bold fst-italic"
+            >There are no employee Added</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4" *ngFor="let employee of empTodisplay; let ei = index;">
+      <div class="col">
+        <app-employee [employee]="employee" (deleteemp)="deleteEmployee($event)" (editemp)="editEmployee($event)"></app-employee>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Add The Employee Infomation
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Employee Form -->
+
+        <form [formGroup]="employeeform">
+          <div class="row">
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="First Name"
+                formControlName="firstname"
+              />
+            </div>
+            <br /><br />
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Last Name"
+                formControlName="lastname"
+              />
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col form-heading">
+              <h6>Personal Info</h6>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="datepicker" class="form-label">Bith-Date</label>
+                <input
+                  type="date"
+                  formControlName="birthday"
+                  class="form-control"
+                  id="datepicker"
+                />
+              </div>
+              <div class="col">
+                <label for="datepicker" class="form-label">Gender</label>
+                <div class="row">
+                  <div class="col">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        value="Male"
+                        id="male"
+                        formControlName="gender"
+                      />
+                      <label class="form-check-label" for="male"> Male </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        value="Female"
+                        id="female"
+                        formControlName="gender"
+                      />
+                      <label class="form-check-label" for="female">
+                        Female
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col">
+                  <select class="form-select" formControlName="education">
+                    <option value="default" selected>
+                      Select your Education
+                    </option>
+                    <option
+                      *ngFor="let option of educations; let i = index"
+                      value="{{i}}"
+                    >
+                      {{ option | titlecase }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col">
+              <label for="profile" class="form-label">Profile Image</label>
+              <input
+                type="file"
+                class="form-control"
+                id="profile"
+                #fileInput
+              />
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col form-heading">
+              <h6>Job Information</h6>
+            </div>
+            <div class="row">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Company Name"
+                  formControlName="company"
+                />
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Job Experence-(Yrs)"
+                  formControlName="jobexp"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Sallery-(USD)"
+                  formControlName="sallery"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addEmployee()"
+          data-bs-dismiss="modal"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

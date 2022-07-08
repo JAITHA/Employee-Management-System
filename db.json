@@ -1,0 +1,52 @@
+{
+  "posts": [
+    {
+      "firstname": "Kevin ",
+      "lastname": "Peeter",
+      "birthday": "2022-07-20",
+      "gender": "Male",
+      "education": "Graduate",
+      "company": "Virtusa",
+      "jobexp": 2,
+      "sallery": 600,
+      "profile": "Profile-02.jpg",
+      "id": 1
+    },
+    {
+      "firstname": "Meeta",
+      "lastname": "Anderson",
+      "birthday": "1990-06-13",
+      "gender": "Female",
+      "education": "Master",
+      "company": "360X",
+      "jobexp": 1,
+      "sallery": 900,
+      "profile": "Img-08.jpg",
+      "id": 2
+    },
+    {
+      "firstname": "Viliam",
+      "lastname": "Neason",
+      "birthday": "2000-06-14",
+      "gender": "Male",
+      "education": "Graduate",
+      "company": "WSO2",
+      "jobexp": 2,
+      "sallery": 1500,
+      "profile": "Profile-03.jpg",
+      "id": 4
+    },
+    {
+      "firstname": "Alishiya",
+      "lastname": "Anderson",
+      "birthday": "2000-02-09",
+      "gender": "Female",
+      "education": "Phd",
+      "company": "IFS",
+      "jobexp": 1,
+      "sallery": 800,
+      "profile": "Profile-05.jpg",
+      "id": 5
+    }
+  ]
+}
